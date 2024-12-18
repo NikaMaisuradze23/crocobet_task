@@ -40,3 +40,27 @@ jobs:
     - name: Run tests
       working-directory: ./Task2  # Change to the correct directory here
       run: npm test
+
+deploy:
+    runs-on: ubuntu-latest  # The operating system for deployment job
+
+    needs: test  # Ensure deployment only runs if tests are successful
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}  # Load the SSH private key from GitHub secrets
+
+    - name: Deploy to EC2
+      run: |
+        # Deploy the app using SSH to the EC2 instance
+        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} "
+          cd /path/to/your/app &&
+          git pull origin master &&
+          npm install &&
+          pm2 restart app || npm start
+        "
