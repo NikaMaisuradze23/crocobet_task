@@ -34,14 +34,14 @@ jobs:
 
     # Ensure executable permissions for Jest
     - name: Set executable permissions for Jest
-      run: chmod +x ./Task2/node_modules/.bin/jest  # Ensure Jest is executable1
+      run: chmod +x ./Task2/node_modules/.bin/jest  # Ensure Jest is executable
 
     # Run tests
     - name: Run tests
       working-directory: ./Task2  # Change to the correct directory here
       run: npm test
 
-deploy:
+  deploy:
     runs-on: ubuntu-latest  # The operating system for deployment job
 
     needs: test  # Ensure deployment only runs if tests are successful
