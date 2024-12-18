@@ -1,0 +1,39 @@
+name: Node.js CI
+
+
+on:
+  push:
+    branches:
+      - main  
+  pull_request:
+    branches:
+      - main  
+
+jobs:
+  test:
+    runs-on: ubuntu-latest #ოპერაციული სტემა რაზეც ვუშვებთ
+
+    steps:
+    - name: Checkout code   
+      uses: actions/checkout@v2
+
+    
+    - name: Set up Node.js   #გარემოს მოწყობა
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  
+
+    - name: Navigate to app directory #რეპოზიტორში გადასვლა სადაც კოდია
+      run: cd crocobet_task/Task2
+
+   
+    - name: Install dependencies #დეფენდესების დაყენება
+      run: |
+        cd crocobet_task/Task2
+        npm install
+
+   
+    - name: Run tests # ტესტის გაშვება
+      run: |
+        cd crocobet_task/Task2
+        npm test
