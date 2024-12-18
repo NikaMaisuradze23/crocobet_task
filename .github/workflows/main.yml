@@ -17,9 +17,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    # List files in the repository to verify the directory structure
     - name: List files in the repository
-      run: ls -R
-
+      run: ls -R  # Recursively list all files in the repository to verify structure
 
     # Set up Node.js environment
     - name: Set up Node.js
