@@ -32,6 +32,10 @@ jobs:
       working-directory: ./Task2  # Change to the correct directory here
       run: npm install
 
+    # Ensure executable permissions for Jest
+    - name: Set executable permissions for Jest
+      run: chmod +x ./Task2/node_modules/.bin/jest  # Ensure Jest is executable
+
     # Run tests
     - name: Run tests
       working-directory: ./Task2  # Change to the correct directory here
