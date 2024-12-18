@@ -1,0 +1,15 @@
+{
+  "name": "task2",
+  "version": "1.0.0",
+  "description": "- **Write a simple CI/CD pipeline configuration** (e.g., in GitLab CI/CD or GitHub Actions) that:\r   - Builds a basic Node.js application.\r   - Runs tests using `npm test`.\r   - Deploys the application to a staging server.\r - **Explain the YAML file structure and its components.**",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
