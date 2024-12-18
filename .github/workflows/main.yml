@@ -34,7 +34,7 @@ jobs:
 
     # Ensure executable permissions for Jest
     - name: Set executable permissions for Jest
-      run: chmod +x ./Task2/node_modules/.bin/jest  # Ensure Jest is executable
+      run: chmod +x ./Task2/node_modules/.bin/jest  # Ensure Jest is executable1
 
     # Run tests
     - name: Run tests
