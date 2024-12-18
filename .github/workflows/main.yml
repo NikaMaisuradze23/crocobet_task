@@ -1,39 +1,34 @@
 name: Node.js CI
 
-
 on:
   push:
     branches:
-      - master  
+      - master  # Trigger on push to the 'master' branch
   pull_request:
     branches:
-      - master  
+      - master  # Trigger on pull request targeting 'master' branch
 
 jobs:
   test:
-    runs-on: ubuntu-latest #ოპერაციული სტემა რაზეც ვუშვებთ
+    runs-on: ubuntu-latest  # The operating system to run the job on
 
     steps:
-    - name: Checkout code   
+    # Checkout the code from the repository
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    
-    - name: Set up Node.js   #გარემოს მოწყობა
+    # Set up Node.js environment
+    - name: Set up Node.js   # Set up the Node.js environment
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  
+        node-version: '16'  # Specify Node.js version
 
-    - name: Navigate to app directory #რეპოზიტორში გადასვლა სადაც კოდია
-      run: cd crocobet_task/Task2
+    # Install dependencies
+    - name: Install dependencies # Install project dependencies
+      working-directory: ./crocobet_task/Task2  # Set the correct directory here
+      run: npm install
 
-   
-    - name: Install dependencies #დეფენდესების დაყენება
-      run: |
-        cd crocobet_task/Task2
-        npm install
-
-   
-    - name: Run tests # ტესტის გაშვება
-      run: |
-        cd crocobet_task/Task2
-        npm test
+    # Run tests
+    - name: Run tests # Run the tests with Jest
+      working-directory: ./crocobet_task/Task2  # Set the correct directory here
+      run: npm test
