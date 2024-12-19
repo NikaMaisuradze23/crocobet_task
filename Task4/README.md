@@ -12,7 +12,7 @@
 - Steps to start the services and verify they are running (`docker-compose up`).
 - A brief explanation of service dependencies in the `docker-compose` file.
 
-1. **Apply the nginx deployment configuration:**
+1. **configuration:**
 
    ```bash
    
