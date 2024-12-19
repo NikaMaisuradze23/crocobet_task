@@ -1,0 +1,13 @@
+{
+  "name": "task4-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.8.3"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
+
